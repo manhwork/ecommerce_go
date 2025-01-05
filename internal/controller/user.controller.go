@@ -16,9 +16,25 @@ func NewUserController() *UserController {
 	}
 }
 
-// /v1/api/users
+// [GET] /v1/api/users
 func (uc *UserController) Index(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"msg": "ok",
-	})
+	users, err := uc.userService.FindAllUsers()
+	if err != nil {
+		c.JSON(404, gin.H{
+			"msg": "NOT FOUND USERS!",
+		})
+	}
+	c.JSON(200, users)
+}
+
+// [GET] /v1/api/users/:cccd
+func (uc *UserController) GetInfoUser(c *gin.Context) {
+	cccd := c.Param("cccd")
+	user, err := uc.userService.FindUserById(cccd)
+	if err != nil {
+		c.JSON(404, gin.H{
+			"msg": "NOT FOUND USERS!",
+		})
+	}
+	c.JSON(200, user)
 }
