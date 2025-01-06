@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin người dùng</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            margin: 15px;
+            text-align: left;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .card .label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .card .value {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-container">
+        <div class="card">
+            <h3>{{.user.FullName}}</h3>
+            <p><span class="label">CCCD:</span> <span class="value">{{.user.CCCD}}</span></p>
+            <p><span class="label">Ngày sinh:</span> <span class="value">{{.user.DateOfBirth}}</span></p>
+            <p><span class="label">Giới tính:</span> <span class="value">{{.user.Gender}}</span></p>
+            <p><span class="label">Quốc tịch:</span> <span class="value">{{.user.Nationality}}</span></p>
+            <p><span class="label">Quê quán:</span> <span class="value">{{.user.PlaceOfBirth}}</span></p>
+            <p><span class="label">Ngày cấp CCCD:</span> <span class="value">{{.user.IssueDate}}</span></p>
+            <p><span class="label">Ngày hết hạn:</span> <span class="value">{{.user.ExpiryDate}}</span></p>
+            <p><span class="label">Số CCCD cũ:</span> <span class="value">{{.user.OldCCCD}}</span></p>
+            <p><span class="label">Dân tộc:</span> <span class="value">{{.user.Ethnicity}}</span></p>
+            <p><span class="label">Tôn giáo:</span> <span class="value">{{.user.Religion}}</span></p>
+            <p><span class="label">Nhận dạng cá nhân:</span> <span class="value">{{.user.PersonalID}}</span></p>
+            <p><span class="label">Địa chỉ thường trú:</span> <span class="value">{{.user.PermanentAddr}}</span></p>
+            <p><span class="label">Tên cha:</span> <span class="value">{{.user.FatherName}}</span></p>
+            <p><span class="label">Tên mẹ:</span> <span class="value">{{.user.MotherName}}</span></p>
+            <p><span class="label">Tên vợ/chồng:</span> <span class="value">{{.user.SpouseName}}</span></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

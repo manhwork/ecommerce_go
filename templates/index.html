@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}}</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>CCCD</th>
+                <th>Họ và tên</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+                <th>Quê quán</th>
+                <th>Địa chỉ thường trú</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .users}}
+            <tr>
+                <td>{{.CCCD}}</td>
+                <td>{{.FullName}}</td>
+                <td>{{.DateOfBirth}}</td>
+                <td>{{.Gender}}</td>
+                <td>{{.PlaceOfBirth}}</td>
+                <td>{{.PermanentAddr}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -6,7 +6,7 @@ type User struct {
 	CCCD          string `json:"cccd"`
 	FullName      string `json:"full_name"`
 	DateOfBirth   string `json:"date_of_birth"`
-	Gender        string `json:"gender"` // Có thể là "Nam", "Nữ", "Khác"
+	Gender        string `json:"gender"`
 	Nationality   string `json:"nationality"`
 	PlaceOfBirth  string `json:"place_of_birth"` // Quê quán
 	IssueDate     string `json:"issue_date"`     // Ngày cấp CCCD

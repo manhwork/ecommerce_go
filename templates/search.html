@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background-color: #f1f1f1;
+        }
+
+        .details {
+            display: none;
+        }
+
+        .not-found {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-container">
+        <h1>Tìm kiếm thông tin CCCD</h1>
+        <form action="/v1/api/search" method="get">
+            <input type="text" name="key" placeholder="Nhập số CCCD..." required />
+            <br />
+            <button type="submit">Tìm kiếm</button>
+        </form>
+    </div>
+
+    {{if ne .status 404}}
+    <a href="/v1/api/users/{{.user.CCCD}}">
+        <div class="card">
+            <h3>{{.user.FullName}}</h3>
+            <p><strong>CCCD:</strong> {{.user.CCCD}}</p>
+            <p><strong>Ngày sinh:</strong> {{.user.DateOfBirth}}</p>
+            <button class="show-details-btn">Xem chi tiết</button>
+            <div class="details">
+                <p><strong>Giới tính:</strong> {{.user.Gender}}</p>
+                <p><strong>Quốc tịch:</strong> {{.user.Nationality}}</p>
+                <p><strong>Quê quán:</strong> {{.user.PlaceOfBirth}}</p>
+                <p><strong>Ngày cấp:</strong> {{.user.IssueDate}}</p>
+                <p><strong>Ngày hết hạn:</strong> {{.user.ExpiryDate}}</p>
+                <p><strong>Địa chỉ thường trú:</strong> {{.user.PermanentAddr}}</p>
+            </div>
+        </div>
+    </a>
+    {{else}}
+    <div class="not-found">
+        <p>Không tìm thấy thông tin người dùng!</p>
+    </div>
+    {{end}}
+
+</body>
+
+</html>

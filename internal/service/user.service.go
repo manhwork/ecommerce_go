@@ -26,3 +26,7 @@ func (us *UserService) FindUserById(cccd string) (*models.User, error) {
 func (us *UserService) Create(user *models.User) error {
 	return us.UserRepo.Create(user)
 }
+
+func (us *UserService) Search(key string) (*models.User, error) {
+	return us.UserRepo.Search(key)
+}
