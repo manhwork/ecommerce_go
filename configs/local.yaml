@@ -1,0 +1,7 @@
+server:
+    port: 8080
+databases:
+    user: amdin
+    password: 1
+    host: localhost
+    dbname: go_api
